@@ -2,14 +2,31 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-    <meta charset="UFT-8">
+    <meta charset="UTF-8">
     <title>検索結果</title>
 </head>
 
 <body>
     <h1>検索結果</h1>
 
-    <p th:text="${result}"></p>
+    <p th:if="${response.results == null}">
+        エラー：<span th:text="${response.message}"></span>
+    </p>
+
+    <table th:if="${response.results != null}">
+        <tr>
+            <th>郵便番号</th>
+            <th>都道府県</th>
+            <th>市区町村</th>
+            <th>町域</th>
+        </tr>
+        <tr th:each="res : ${response.results}">
+            <td th:text="${res.zipcode}"></td>
+            <td th:text="${res.address1}"></td>
+            <td th:text="${res.address2}"></td>
+            <td th:text="${res.address3}"></td>
+        </tr>
+    </table>
 
 </body>
 
