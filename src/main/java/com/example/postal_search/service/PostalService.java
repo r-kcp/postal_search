@@ -30,4 +30,5 @@ public class PostalService {
         
         return response;   // 中身を返す
     }    
+
 }
