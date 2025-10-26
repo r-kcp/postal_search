@@ -1,7 +1,10 @@
 package com.example.postal_search.model;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class PostalResponse {
     private String message;
     private List<PostalResult> results;
